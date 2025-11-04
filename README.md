@@ -1,4 +1,4 @@
-This repository contains the ROS nodes for the `tandem` project, designed for AUV (Autonomous Underwater Vehicle) inspection tasks. It includes controllers, such as the `VerticalInspector`, for generating autonomous survey patterns in a simulated environment.
+This repository contains the ROS nodes for the `TANDEM` project, designed for Girona500 AUV inspection tasks. 
 
 ## ⚠️ Required Environment
 
