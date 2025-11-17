@@ -2,17 +2,19 @@
 # -*- coding: utf-8 -*-
 """
 Genera una misión XML de inspección en PLANO VERTICAL frente a una columna,
-manteniendo un YAW fijo (perpendicular a la columna) en TODAS las secciones.
-Se elimina cualquier uso de 'park'.
+utilizando maniobras 'SwaySection'.
+
+MODIFICADO:
+  - Ahora toma la ubicación de la columna en metros (NED) relativa a un
+    origen NED (lat/lon) especificado.
+  - Esto evita errores de "distancia demasiado grande" si el origen de la misión
+    y el origen NED del robot están en lugares diferentes.
 
 Patrón:
   1) GOTO a esquina superior izquierda (o derecha) del plano
-  2) SECTION horizontal (L->R o R->L) con yaw fijo mirando a la columna
-  3) SECTION vertical (descenso) con yaw fijo
+  2) SWAY_SECTION horizontal (L->R o R->L)
+  3) SWAY_SECTION vertical (descenso)
   4) Alterna hasta alcanzar la profundidad inferior
-
-Salida por defecto:
-  /home/rosuser/repo/catkin_ws/src/cola2_girona500/missions/mission_vertical_plane_NED.xml
 """
 
 import math
@@ -36,7 +38,6 @@ def bearing_unit_vectors(bearing_deg: float) -> Tuple[Tuple[float, float], Tuple
     Devuelve vectores unitarios en NED:
       n_hat: desde la columna hacia el plano (bearing)
       l_hat: lateral izquierda (bearing + 90º)
-    Convención NED: x=North, y=East, 0°=Norte, 90°=Este
     """
     br = math.radians(bearing_deg)
     n_hat = (math.cos(br), math.sin(br))            # (north, east)
@@ -68,17 +69,15 @@ def make_goto_step(lat: float, lon: float, depth: float,
     return step
 
 
-def make_section_step(lat_i: float, lon_i: float, depth_i: float,
-                      lat_f: float, lon_f: float, depth_f: float,
-                      altitude_f: float, surge_vel: float, tol_xy: float,
-                      heave_mode: int = 0, no_altitude_goes_up: bool = True,
-                      yaw_deg: float = None, use_yaw: bool = False) -> ET.Element:
+def make_sway_section_step(lat_i: float, lon_i: float, depth_i: float,
+                           lat_f: float, lon_f: float, depth_f: float,
+                           altitude_f: float, sway_vel: float, tol_xy: float,
+                           heave_mode: int = 0, no_altitude_goes_up: bool = True) -> ET.Element:
     """
-    Crea una 'section' entre (lat_i, lon_i, depth_i) y (lat_f, lon_f, depth_f)
-    y opcionalmente fija el yaw si 'use_yaw' es True y 'yaw_deg' está definido.
+    Crea una 'sway_section'
     """
     step = ET.Element("mission_step")
-    man = ET.SubElement(step, "maneuver", {"type": "section"})
+    man = ET.SubElement(step, "maneuver", {"type": "sway_section"})
     add_text_element(man, "initial_latitude", f"{lat_i:.12f}")
     add_text_element(man, "initial_longitude", f"{lon_i:.12f}")
     add_text_element(man, "initial_depth", f"{depth_i:.2f}")
@@ -87,21 +86,17 @@ def make_section_step(lat_i: float, lon_i: float, depth_i: float,
     add_text_element(man, "final_depth", f"{depth_f:.2f}")
     add_text_element(man, "final_altitude", f"{altitude_f:.2f}")
     add_text_element(man, "heave_mode", f"{heave_mode}")
-    add_text_element(man, "surge_velocity", f"{surge_vel:.3f}")
+    add_text_element(man, "surge_velocity", f"{sway_vel:.3f}")
     add_text_element(man, "tolerance_xy", f"{tol_xy:.2f}")
     add_text_element(man, "no_altitude_goes_up", "true" if no_altitude_goes_up else "false")
-
-    # Yaw fijo en sección
-    if use_yaw and yaw_deg is not None:
-        add_text_element(man, "final_yaw", f"{yaw_deg:.1f}")
-        add_text_element(man, "use_yaw", "true")
-    else:
-        add_text_element(man, "use_yaw", "false")
-
     return step
 
 
-def build_vertical_plane_mission(lat_col: float, lon_col: float,
+def build_vertical_plane_mission(
+                                 # --- MODIFICADO: Origen NED del Robot ---
+                                 ned_origin_lat: float, ned_origin_lon: float,
+                                 # --- MODIFICADO: Ubicación de la columna en metros ---
+                                 column_north_m: float, column_east_m: float,
                                  column_radius_m: float, standoff_m: float,
                                  bearing_deg: float,
                                  plane_width_m: float,
@@ -114,8 +109,8 @@ def build_vertical_plane_mission(lat_col: float, lon_col: float,
                                  altitude_stub: float = 0.0,
                                  start_on_left: bool = True) -> ET.ElementTree:
     """
-    Genera la misión vertical NED con cobertura 'back-and-forth', con yaw FIJO
-    en TODAS las 'section' (horizontales y verticales), mirando hacia la columna.
+    Genera la misión vertical NED con cobertura 'back-and-forth', usando
+    SwaySection para que el AUV avance lateralmente.
     """
     assert bottom_depth_m > top_depth_m >= 0.0, "Profundidades incoherentes (bottom > top >= 0)."
     assert plane_width_m > 0 and vertical_step_m > 0, "Anchura y paso vertical deben ser > 0."
@@ -125,29 +120,29 @@ def build_vertical_plane_mission(lat_col: float, lon_col: float,
 
     n_hat, l_hat = bearing_unit_vectors(bearing_deg)
 
-    # Centro del plano (a distancia r + standoff desde el eje de la columna)
+    # --- LÓGICA MODIFICADA ---
+    # 1. Centro del plano (a distancia r + standoff desde el eje de la columna)
+    #    Calculado relativo al (0,0) NED.
     d = column_radius_m + standoff_m
-    north_center = n_hat[0] * d
-    east_center  = n_hat[1] * d
+    north_plane_center = column_north_m + n_hat[0] * d
+    east_plane_center  = column_east_m  + n_hat[1] * d
 
-    # Bordes izquierdo (-W/2) y derecho (+W/2) del plano
+    # 2. Bordes izquierdo (-W/2) y derecho (+W/2) del plano (en metros NED)
     half_w = plane_width_m / 2.0
-    n_left  = north_center + l_hat[0] * (-half_w)
-    e_left  = east_center  + l_hat[1] * (-half_w)
-    n_right = north_center + l_hat[0] * (+half_w)
-    e_right = east_center  + l_hat[1] * (+half_w)
+    n_left  = north_plane_center + l_hat[0] * (-half_w)
+    e_left  = east_plane_center  + l_hat[1] * (-half_w)
+    n_right = north_plane_center + l_hat[0] * (+half_w)
+    e_right = east_plane_center  + l_hat[1] * (+half_w)
 
-    # Convertir bordes a lat/lon (depende solo de la proyección local)
-    dlat_L, dlon_L = meters_to_latlon_offsets(lat_col, n_left,  e_left)
-    dlat_R, dlon_R = meters_to_latlon_offsets(lat_col, n_right, e_right)
-    lat_L, lon_L = lat_col + dlat_L, lon_col + dlon_L
-    lat_R, lon_R = lat_col + dlat_R, lon_col + dlon_R
+    # 3. Convertir bordes (metros NED) a Lat/Lon absolutas usando el origen NED
+    dlat_L, dlon_L = meters_to_latlon_offsets(ned_origin_lat, n_left,  e_left)
+    dlat_R, dlon_R = meters_to_latlon_offsets(ned_origin_lat, n_right, e_right)
+    lat_L, lon_L = ned_origin_lat + dlat_L, ned_origin_lon + dlon_L
+    lat_R, lon_R = ned_origin_lat + dlat_R, ned_origin_lon + dlon_R
+    # --- FIN LÓGICA MODIFICADA ---
 
     # Punto inicial: esquina superior izquierda (o derecha)
     lat_start, lon_start = (lat_L, lon_L) if start_on_left else (lat_R, lon_R)
-
-    # Yaw fijo para mirar hacia la columna (perpendicular al plano)
-    yaw_fixed_deg = (bearing_deg + 180.0) % 360.0
 
     # 1) GOTO inicial a la esquina superior (lado elegido)
     root.append(
@@ -156,7 +151,7 @@ def build_vertical_plane_mission(lat_col: float, lon_col: float,
                        heave_mode, no_altitude_goes_up=True)
     )
 
-    # 2) Cobertura back-and-forth SIN parks, con yaw fijo en todas las sections
+    # 2) Cobertura back-and-forth con SwaySections
     current_depth = top_depth_m
     to_right = start_on_left  # True: L->R; False: R->L
 
@@ -164,42 +159,38 @@ def build_vertical_plane_mission(lat_col: float, lon_col: float,
         if to_right:
             # Horizontal: Izquierda -> Derecha
             root.append(
-                make_section_step(lat_L, lon_L, current_depth,
-                                  lat_R, lon_R, current_depth,
-                                  altitude_stub, surge_velocity_mps,
-                                  tolerance_xy_m, heave_mode,
-                                  no_altitude_goes_up=True,
-                                  yaw_deg=yaw_fixed_deg, use_yaw=True)
+                make_sway_section_step(lat_L, lon_L, current_depth,
+                                       lat_R, lon_R, current_depth,
+                                       altitude_stub, surge_velocity_mps,
+                                       tolerance_xy_m, heave_mode,
+                                       no_altitude_goes_up=True)
             )
             # Descenso vertical en el borde derecho
             next_depth = min(current_depth + vertical_step_m, bottom_depth_m)
             root.append(
-                make_section_step(lat_R, lon_R, current_depth,
-                                  lat_R, lon_R, next_depth,
-                                  altitude_stub, surge_velocity_mps,
-                                  tolerance_xy_m, heave_mode,
-                                  no_altitude_goes_up=True,
-                                  yaw_deg=yaw_fixed_deg, use_yaw=True)
+                make_sway_section_step(lat_R, lon_R, current_depth,
+                                       lat_R, lon_R, next_depth,
+                                       altitude_stub, surge_velocity_mps,
+                                       tolerance_xy_m, heave_mode,
+                                       no_altitude_goes_up=True)
             )
         else:
             # Horizontal: Derecha -> Izquierda
             root.append(
-                make_section_step(lat_R, lon_R, current_depth,
-                                  lat_L, lon_L, current_depth,
-                                  altitude_stub, surge_velocity_mps,
-                                  tolerance_xy_m, heave_mode,
-                                  no_altitude_goes_up=True,
-                                  yaw_deg=yaw_fixed_deg, use_yaw=True)
+                make_sway_section_step(lat_R, lon_R, current_depth,
+                                       lat_L, lon_L, current_depth,
+                                       altitude_stub, surge_velocity_mps,
+                                       tolerance_xy_m, heave_mode,
+                                       no_altitude_goes_up=True)
             )
             # Descenso vertical en el borde izquierdo
             next_depth = min(current_depth + vertical_step_m, bottom_depth_m)
             root.append(
-                make_section_step(lat_L, lon_L, current_depth,
-                                  lat_L, lon_L, next_depth,
-                                  altitude_stub, surge_velocity_mps,
-                                  tolerance_xy_m, heave_mode,
-                                  no_altitude_goes_up=True,
-                                  yaw_deg=yaw_fixed_deg, use_yaw=True)
+                make_sway_section_step(lat_L, lon_L, current_depth,
+                                       lat_L, lon_L, next_depth,
+                                       altitude_stub, surge_velocity_mps,
+                                       tolerance_xy_m, heave_mode,
+                                       no_altitude_goes_up=True)
             )
 
         # Preparar siguiente banda
@@ -210,9 +201,15 @@ def build_vertical_plane_mission(lat_col: float, lon_col: float,
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Generador de misión vertical 'back-and-forth' (NED) con yaw fijo en secciones.")
-    ap.add_argument("--lat_col", type=float, required=True, help="Latitud del centro de la columna (deg).")
-    ap.add_argument("--lon_col", type=float, required=True, help="Longitud del centro de la columna (deg).")
+    ap = argparse.ArgumentParser(description="Generador de misión vertical 'back-and-forth' (NED) usando SwaySection.")
+    
+    # --- ARGUMENTOS MODIFICADOS ---
+    ap.add_argument("--ned_origin_lat", type=float, required=True, help="Latitud del origen NED del robot (deg).")
+    ap.add_argument("--ned_origin_lon", type=float, required=True, help="Longitud del origen NED del robot (deg).")
+    ap.add_argument("--column_north_m", type=float, required=True, help="Posición Norte de la columna (en metros) relativa al origen NED.")
+    ap.add_argument("--column_east_m", type=float, required=True, help="Posición Este de la columna (en metros) relativa al origen NED.")
+    # --- FIN ARGUMENTOS MODIFICADOS ---
+
     ap.add_argument("--column_radius_m", type=float, required=True, help="Radio de la columna (m).")
     ap.add_argument("--standoff_m", type=float, required=True, help="Distancia de seguridad (m).")
     ap.add_argument("--bearing_deg", type=float, required=True, help="Ángulo de la normal del plano (0=N, 90=E).")
@@ -221,15 +218,20 @@ def main():
     ap.add_argument("--top_depth_m", type=float, required=True, help="Profundidad superior (m, positiva hacia abajo).")
     ap.add_argument("--bottom_depth_m", type=float, required=True, help="Profundidad inferior (m).")
     ap.add_argument("--vertical_step_m", type=float, required=True, help="Paso vertical entre pasadas (m).")
-    ap.add_argument("--surge_velocity_mps", type=float, default=0.4, help="Velocidad de avance (m/s).")
+    ap.add_argument("--surge_velocity_mps", type=float, default=0.4, help="Velocidad deseada (m/s). Se usará como velocidad de SWAY.")
     ap.add_argument("--tolerance_xy_m", type=float, default=1.5, help="Tolerancia XY (m).")
     ap.add_argument("--heave_mode", type=int, default=0, help="Modo heave (0=profundidad).")
     ap.add_argument("--output", type=str, default="/home/rosuser/repo/catkin_ws/src/cola2_girona500/missions/mission_vertical_plane_NED.xml")
     args = ap.parse_args()
 
     tree = build_vertical_plane_mission(
-        lat_col=args.lat_col,
-        lon_col=args.lon_col,
+        # --- ARGUMENTOS MODIFICADOS ---
+        ned_origin_lat=args.ned_origin_lat,
+        ned_origin_lon=args.ned_origin_lon,
+        column_north_m=args.column_north_m,
+        column_east_m=args.column_east_m,
+        # --- FIN ARGUMENTOS MODIFICADOS ---
+
         column_radius_m=args.column_radius_m,
         standoff_m=args.standoff_m,
         bearing_deg=args.bearing_deg,
