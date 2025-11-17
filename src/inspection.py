@@ -6,10 +6,14 @@ import math
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from std_msgs.msg import Float64
-from sensor_msgs.msg import Range  # <-- Importar sensor_msgs/Range
+from sensor_msgs.msg import Range
 from tf.transformations import euler_from_quaternion
 
-# Ajusta estos imports al paquete de tus mensajes si no usas COLA2:
+# --- DYNAMIC RECONFIGURE IMPORTS ---
+from dynamic_reconfigure.server import Server
+# Asegúrate de que 'tandem' es el nombre correcto de tu paquete donde está el .cfg
+from tandem.cfg import VerticalInspectorConfig
+
 from cola2_msgs.msg import BodyVelocityReq, GoalDescriptor, Bool6Axis
 
 
@@ -18,29 +22,29 @@ class VerticalInspector(object):
     Genera un patrón de inspección vertical (cortacésped en Y-Z)
     calculando la profundidad actual a partir de la altitud y la
     profundidad del fondo marino.
+    Parámetros de control ajustables dinámicamente.
     """
     def __init__(self):
-        # ---- Parámetros de la MISIÓN ----
+        # ---- Parámetros de la MISIÓN (Estáticos) ----
+        # Estos no se cambian dinámicamente porque requerirían regenerar waypoints
         self.inspection_width = rospy.get_param("~inspection_width", 6.0)
         self.inspection_depth = rospy.get_param("~inspection_depth", 10.0)
         self.step_down_z = rospy.get_param("~step_down_z", 2.0)
 
-        # ---- Parámetros de CONTROL ----
-        # ---- Control lateral (Y) ----
-        self.kp_y = rospy.get_param("~kp_y", 0.20)
-        self.vy_max = rospy.get_param("~vy_max", 0.6)
-        self.tol_y = rospy.get_param("~tol_y", 0.2) 
-
-        # ---- Control de profundidad (Z) ----
-        self.kp_z = rospy.get_param("~kp_z", 0.12)
-        self.ki_z = rospy.get_param("~ki_z", 0.01)
-        self.vz_max = rospy.get_param("~vz_max", 0.8)
-        self.int_z_limit = rospy.get_param("~int_z_limit", 0.2)
-        self.tol_z = rospy.get_param("~tol_z", 0.2) 
+        # ---- Inicialización de variables de CONTROL (Valores por defecto temporales) ----
+        # Estos valores serán sobrescritos inmediatamente por el servidor de reconfigure
+        self.kp_y = 0.20
+        self.vy_max = 0.6
+        self.tol_y = 0.2
+        self.kp_z = 0.12
+        self.ki_z = 0.01
+        self.vz_max = 0.8
+        self.int_z_limit = 0.2
+        self.tol_z = 0.2
+        self.alpha = 0.3
+        self.max_dv = 0.10
 
         # ---- Suavizado de consignas ----
-        self.alpha = rospy.get_param("~alpha_filter", 0.3)
-        self.max_dv = rospy.get_param("~max_dv", 0.10)
         self.vy_f = 0.0
         self.vz_f = 0.0
 
@@ -49,7 +53,7 @@ class VerticalInspector(object):
         self.frame_id = rospy.get_param("~frame_id", "girona500/base_link")
         self.rate_hz = rospy.get_param("~rate_hz", 20.0)
         
-        # --- (NUEVO) Tópicos para calcular la profundidad ---
+        # --- Tópicos para calcular la profundidad ---
         self.altitude_topic = rospy.get_param("~altitude_topic", "/girona500/navigator/altitude")
         self.sea_bottom_depth = rospy.get_param("~sea_bottom_depth", 50)
 
@@ -58,16 +62,14 @@ class VerticalInspector(object):
                                    BodyVelocityReq, queue_size=10)
         self.sub_odom = rospy.Subscriber(self.odom_topic, Odometry, self.odom_cb, queue_size=10)
 
-        # --- (NUEVO) Subscribers de altitud y fondo ---
         self.altitude = None
-        self.current_depth_calculated = None # Profundidad calculada (Distancia desde la superficie)
-        self.depth0 = None # Profundidad inicial calculada
+        self.current_depth_calculated = None 
+        self.depth0 = None 
         
         self.sub_alt = rospy.Subscriber(self.altitude_topic, Range, self.altitude_cb, queue_size=10)
 
-
         # ---- Estados de la Misión ----
-        self.state = "INITIALIZING"  # INITIALIZING, MOVING, FINISHED
+        self.state = "INITIALIZING" 
         self.waypoints = []
         self.current_wp_index = 0
         self._generate_waypoints()
@@ -78,13 +80,43 @@ class VerticalInspector(object):
         self.yaw0 = 0.0
         self.last_pose = None
         self.start_time = rospy.Time.now()
-        self.int_z = 0.0  # Término integral para Z
+        self.int_z = 0.0 
+
+        # ---- DYNAMIC RECONFIGURE SERVER ----
+        # Inicializamos el servidor pasando la configuración y el callback.
+        # Esto llamará a self.reconfigure_cb inmediatamente una vez.
+        self.srv = Server(VerticalInspectorConfig, self.reconfigure_cb)
 
         rospy.Timer(rospy.Duration(1.0/self.rate_hz), self.on_timer)
 
         rospy.loginfo("VerticalInspector listo | odom=%s", self.odom_topic)
         rospy.loginfo("Inspección: %.1fm (Y) x %.1fm (Z), bajando %.1fm por pasada.",
                       self.inspection_width, self.inspection_depth, self.step_down_z)
+
+    def reconfigure_cb(self, config, level):
+        """ 
+        Callback que se ejecuta cuando cambian parámetros en rqt_reconfigure 
+        o al iniciar el nodo.
+        """
+        rospy.loginfo("Reconfigurando parámetros de control...")
+        
+        # Control Lateral (Y)
+        self.kp_y = config.kp_y
+        self.vy_max = config.vy_max
+        self.tol_y = config.tol_y
+        
+        # Control Profundidad (Z)
+        self.kp_z = config.kp_z
+        self.ki_z = config.ki_z
+        self.vz_max = config.vz_max
+        self.int_z_limit = config.int_z_limit
+        self.tol_z = config.tol_z
+        
+        # Filtros (Nota: en tu .cfg pusiste "alpha_filter", mapealo a self.alpha)
+        self.alpha = config.alpha_filter
+        self.max_dv = config.max_dv
+        
+        return config
 
     def _generate_waypoints(self):
         """ Genera la lista de waypoints relativos (dy, dz) para el patrón. """
@@ -120,7 +152,6 @@ class VerticalInspector(object):
         if self.altitude is not None and self.sea_bottom_depth is not None:
             self.current_depth_calculated = self.sea_bottom_depth - self.altitude
             
-            # Si ya tenemos odom y aún no hemos fijado la profundidad inicial, hazlo.
             if self.depth0 is None and self.has_init:
                 self.depth0 = self.current_depth_calculated
                 rospy.loginfo("**********************************************")
@@ -128,7 +159,6 @@ class VerticalInspector(object):
                 rospy.loginfo("**********************************************")
 
     def odom_cb(self, msg):
-        """ Callback de Odometría (sin cambios, excepto en el log) """
         px = msg.pose.pose.position.x
         py = msg.pose.pose.position.y
         pz = msg.pose.pose.position.z
@@ -140,7 +170,6 @@ class VerticalInspector(object):
             self.has_init = True
             rospy.loginfo("Posición inicial fijada: x0=%.2f y0=%.2f z0=%.2f yaw0=%.1f°",
                           self.x0, self.y0, self.z0, math.degrees(self.yaw0))
-            # Intentamos fijar la profundidad0 (puede que ya se haya fijado en el callback)
             self.calculate_current_depth() 
 
         self.last_pose = (px, py, pz, yaw)
@@ -151,7 +180,6 @@ class VerticalInspector(object):
         
         # --- Estado 1: INITIALIZING ---
         if self.state == "INITIALIZING":
-            # (MODIFICADO) Esperar a tener odom Y la profundidad inicial calculada
             is_ready = self.has_init and self.last_pose is not None and (self.depth0 is not None)
                 
             if not is_ready:
@@ -177,34 +205,35 @@ class VerticalInspector(object):
             target_dy, target_dz = self.waypoints[self.current_wp_index]
             px, py, pz, yaw = self.last_pose
             
-            # Error en Eje Y (sin cambios)
+            # Error en Eje Y
             dx_w = px - self.x0
             dy_w = py - self.y0
             cy = math.cos(self.yaw0); sy = math.sin(self.yaw0)
             dy_b = -sy*dx_w + cy*dy_w
             e_y = target_dy - dy_b
+            
+            # Control P para Y (usando self.kp_y dinámico)
             vy = self.clip(self.kp_y * e_y, -self.vy_max, self.vy_max)
             reached_y = abs(e_y) < self.tol_y
+            
             e_z_or_depth = 0.0
             
-            # Usar siempre la profundidad calculada
             if self.current_depth_calculated is None:
-                # No hemos recibido datos de altitud/fondo recientemente
                 rospy.logwarn_throttle(1.0, "Perdidos datos de altitud/fondo. Pausando control Z.")
                 vz_cmd = 0.0
                 vz = 0.0
-                e_z_or_depth = 0.0 # Error 0
-                reached_z = False  # No podemos saber si hemos llegado
-                self.int_z = 0.0   # Resetea integral
+                e_z_or_depth = 0.0 
+                reached_z = False  
+                self.int_z = 0.0   
             
             else:
-                # Lógica de control PI normal
                 target_depth = self.depth0 + target_dz
-                e_depth = target_depth - self.current_depth_calculated # <-- Usando el valor calculado
+                e_depth = target_depth - self.current_depth_calculated 
                 e_z_or_depth = e_depth
                 
+                # Control PI para Z (usando self.kp_z y self.ki_z dinámicos)
                 vz_cmd = (self.kp_z * e_z_or_depth + self.int_z)
-                # Anti-windup
+                
                 if abs(vz_cmd) < self.vz_max - 1e-3:
                     self.int_z += self.ki_z * e_z_or_depth / self.rate_hz
                     self.int_z = self.clip(self.int_z, -self.int_z_limit, self.int_z_limit)
@@ -217,7 +246,7 @@ class VerticalInspector(object):
                 rospy.loginfo("Waypoint %d alcanzado: (y=%.2f, z=f(%.2f))", 
                               self.current_wp_index, target_dy, target_dz)
                 self.current_wp_index += 1
-                self.int_z = 0.0  # Resetear integral al cambiar de waypoint
+                self.int_z = 0.0  
                 vy, vz = 0.0, 0.0 
             
             # Suavizar y publicar
@@ -226,11 +255,8 @@ class VerticalInspector(object):
             self.publish_cmd(0.0, vy_s, vz_s, requester)
             
             rospy.loginfo_throttle(1.0, 
-                "WP %d (Y:%.1f, Z:%.1f) | Actual (Y:%.2f, Prof:%.2f) | Err (Y:%.2f, Z:%.2f) | Cmd (vy:%.2f, vz:%.2f)",
-                self.current_wp_index, target_dy, target_dz,
-                dy_b, self.current_depth_calculated if self.current_depth_calculated is not None else -1.0,
-                e_y, e_z_or_depth,
-                vy_s, vz_s)
+                "WP %d | ErrY:%.2f (Kp:%.2f) | ErrZ:%.2f (Kp:%.2f, Ki:%.3f) | Cmd (vy:%.2f, vz:%.2f)",
+                self.current_wp_index, e_y, self.kp_y, e_z_or_depth, self.kp_z, self.ki_z, vy_s, vz_s)
 
         # --- Estado 3: FINISHED ---
         elif self.state == "FINISHED":
@@ -240,8 +266,7 @@ class VerticalInspector(object):
             vy, vz = self.smooth(0.0, 0.0)
             self.publish_cmd(0.0, vy, vz, "inspector_idle")
 
-
-    # -------------------- Utilidades (sin cambios) --------------------
+    # -------------------- Utilidades --------------------
 
     def smooth(self, vy, vz):
         vy_f = self.alpha * vy + (1.0 - self.alpha) * self.vy_f

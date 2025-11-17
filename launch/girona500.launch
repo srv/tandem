@@ -1,7 +1,7 @@
 <launch>
   <!-- Configurable arguments -->
   <arg name="robot_name" default="girona500"/>
-  <arg name="enable_rviz" default="false"/>
+  <arg name="enable_rviz" default="true"/>
   <arg name="robot_xacro" default="$(find girona500_description)/urdf/payload.urdf.xacro"/>
     
   <include file="$(find cola2_girona500)/launch/sim_start.launch">
