@@ -23,7 +23,8 @@ class ImageGeolocalizationNode:
         self.frame_id = "frame_id"
 
         # Params
-        default_yaml = rospy.get_param("~calibration_file", "")
+        default_yaml = rospy.get_param("/net_hole_detector_3d/calibration_file", "")
+        print('yaml path = ' + str(default_yaml))
         self.__load_from_yaml_file(default_yaml)
 
         # CV Bridge
@@ -38,7 +39,7 @@ class ImageGeolocalizationNode:
         )
 
         self.image_info_sub = rospy.Subscriber(
-            self.image_topic,
+            self.info_topic,
             NetStats,
             self.info_callback,
             queue_size=1
@@ -201,6 +202,8 @@ class ImageGeolocalizationNode:
             # 5. Visualizació amb matplotlib
             # =========================
 
+            scale_m_per_px = self.__scale_m_per_px
+
             x_dis = np.cos(angle*pi/180 + pi/2) * height / 2
             y_dis = np.sin(angle*pi/180 + pi/2) * height / 2
             x_gran_borders = [center_x-x_dis, center_x+x_dis]
@@ -214,12 +217,12 @@ class ImageGeolocalizationNode:
             eix_petit_dist = sqrt((x_petit_borders[0] - x_petit_borders[1])**2 + (y_petit_borders[0] - y_petit_borders[1])**2)
 
             # Ara el 0,0 de la imatge està en un cantó. A continuació per a passar el 0,0 al punt de la lent
-            x_gran_borders = [(center_x-x_dis - self.cx) * self.__scale_m_per_px, (center_x+x_dis - self.cx) * self.__scale_m_per_px]
-            y_gran_borders = [(center_y-y_dis - self.cy) * self.__scale_m_per_px, (center_y+y_dis - self.cy) * self.__scale_m_per_px]
+            x_gran_borders = [(center_x-x_dis - self.cx) * scale_m_per_px, (center_x+x_dis - self.cx) * scale_m_per_px]
+            y_gran_borders = [(center_y-y_dis - self.cy) * scale_m_per_px, (center_y+y_dis - self.cy) * scale_m_per_px]
             eix_gran_dist = sqrt((x_gran_borders[0] - x_gran_borders[1])**2 + (y_gran_borders[0] - y_gran_borders[1])**2)
 
-            x_petit_borders = [(center_x-x_dis - self.cx) * self.__scale_m_per_px, (center_x+x_dis - self.cx) * self.__scale_m_per_px]
-            y_petit_borders = [(center_y-y_dis - self.cy) * self.__scale_m_per_px, (center_y+y_dis - self.cy) * self.__scale_m_per_px]
+            x_petit_borders = [(center_x-x_dis - self.cx) * scale_m_per_px, (center_x+x_dis - self.cx) * scale_m_per_px]
+            y_petit_borders = [(center_y-y_dis - self.cy) * scale_m_per_px, (center_y+y_dis - self.cy) * scale_m_per_px]
             eix_petit_dist = sqrt((x_petit_borders[0] - x_petit_borders[1])**2 + (y_petit_borders[0] - y_petit_borders[1])**2)
 
 
