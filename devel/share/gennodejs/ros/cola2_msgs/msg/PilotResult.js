@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/cola2_msgs/share/gennodejs/ros/cola2_msgs/msg/PilotResult.js

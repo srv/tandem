@@ -1,0 +1,20 @@
+\subsubsection usage Usage
+\verbatim
+<node name="vertical_inspector" pkg="tandem" type="vertical_inspector">
+  <param name="kp_y" type="double" value="0.15" />
+  <param name="ki_y" type="double" value="0.05" />
+  <param name="kd_y" type="double" value="0.0" />
+  <param name="int_y_limit" type="double" value="0.2" />
+  <param name="vy_max" type="double" value="0.4" />
+  <param name="tol_y" type="double" value="0.5" />
+  <param name="kp_z" type="double" value="0.1" />
+  <param name="kd_z" type="double" value="0.0" />
+  <param name="ki_z" type="double" value="0.05" />
+  <param name="vz_max" type="double" value="0.4" />
+  <param name="int_z_limit" type="double" value="0.2" />
+  <param name="tol_z" type="double" value="0.5" />
+  <param name="alpha_filter" type="double" value="0.3" />
+  <param name="max_dv" type="double" value="0.1" />
+</node>
+\endverbatim
+

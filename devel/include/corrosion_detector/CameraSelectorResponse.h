@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/corrosion_detector/include/corrosion_detector/CameraSelectorResponse.h

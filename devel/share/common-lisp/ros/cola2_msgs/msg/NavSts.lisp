@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/cola2_msgs/share/common-lisp/ros/cola2_msgs/msg/NavSts.lisp

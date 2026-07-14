@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/corrosion_detector/lib/python3/dist-packages/corrosion_detector/msg/__init__.py

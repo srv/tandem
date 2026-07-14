@@ -71,10 +71,9 @@ include_directories(
 # ------------------------------------------------
 # Esto instala tu controlador para que puedas usar 'rosrun'
 catkin_install_python(PROGRAMS
-  scripts/detector_node.py
-  scripts/manual_test_1.py
-  scripts/blobs_processing.py
-  scripts/hole_3d_pose_publisher.py
+  scripts/corrosion_spot_detector.py
+  scripts/corrosion_stereo_distance_estimator.py
+  scripts/detection_to_world_pose.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

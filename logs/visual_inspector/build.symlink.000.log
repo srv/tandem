@@ -1,0 +1,10 @@
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/lib/pkgconfig/visual_inspector.pc
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/lib/python3/dist-packages/visual_inspector/__init__.py
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/lib/python3/dist-packages/visual_inspector/cfg/__init__.py
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/lib/python3/dist-packages/visual_inspector/cfg/VerticalInspectorConfig.py
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/cmake/visual_inspectorConfig-version.cmake
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/cmake/visual_inspectorConfig.cmake
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/docs/VerticalInspectorConfig-usage.dox
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/docs/VerticalInspectorConfig.wikidoc
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/docs/VerticalInspectorConfig.dox
+Symlinking /home/rosuser/repo/tandem_vicent_ws/devel/include/visual_inspector/VerticalInspectorConfig.h

@@ -22,7 +22,7 @@
     <arg name="detection_topic" default="/yolo/filtered_stereo_pos"/>
 
 
-  <node name="vertical_inspector" pkg="tandem" type="corrosion_ri.py" output="screen">
+  <node name="vertical_inspector" pkg="visual_inspector" type="corrosion_ri.py" output="screen">
       
       <param name="inspection_width" value="6.0" /> 
       

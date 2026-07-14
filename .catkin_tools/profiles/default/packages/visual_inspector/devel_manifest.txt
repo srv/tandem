@@ -1,0 +1,11 @@
+visual_inspector
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/lib/pkgconfig/visual_inspector.pc /home/rosuser/repo/tandem_vicent_ws/devel/lib/pkgconfig/visual_inspector.pc
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/lib/python3/dist-packages/visual_inspector/__init__.py /home/rosuser/repo/tandem_vicent_ws/devel/lib/python3/dist-packages/visual_inspector/__init__.py
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/lib/python3/dist-packages/visual_inspector/cfg/__init__.py /home/rosuser/repo/tandem_vicent_ws/devel/lib/python3/dist-packages/visual_inspector/cfg/__init__.py
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/lib/python3/dist-packages/visual_inspector/cfg/VerticalInspectorConfig.py /home/rosuser/repo/tandem_vicent_ws/devel/lib/python3/dist-packages/visual_inspector/cfg/VerticalInspectorConfig.py
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/share/visual_inspector/cmake/visual_inspectorConfig-version.cmake /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/cmake/visual_inspectorConfig-version.cmake
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/share/visual_inspector/cmake/visual_inspectorConfig.cmake /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/cmake/visual_inspectorConfig.cmake
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/share/visual_inspector/docs/VerticalInspectorConfig-usage.dox /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/docs/VerticalInspectorConfig-usage.dox
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/share/visual_inspector/docs/VerticalInspectorConfig.wikidoc /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/docs/VerticalInspectorConfig.wikidoc
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/share/visual_inspector/docs/VerticalInspectorConfig.dox /home/rosuser/repo/tandem_vicent_ws/devel/share/visual_inspector/docs/VerticalInspectorConfig.dox
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/include/visual_inspector/VerticalInspectorConfig.h /home/rosuser/repo/tandem_vicent_ws/devel/include/visual_inspector/VerticalInspectorConfig.h

@@ -1,0 +1,331 @@
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Mission[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotActionFeedback[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_String[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_MaxJoyVelocity[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotFeedback[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Action[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Goto[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_FlsConfig[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_DigitalOutput[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Float32Stamped[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_ImageAcquisitionSettings[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_SSSConfig[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_RecoveryAction[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Bool6Axis[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_MissionState[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_WorldWaypointReq[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_KeyValueArray[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotResult[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_RPY[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_CaptainStatus[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Recovery[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_DVL[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_BodyForceReq[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_BodyVelocityReq[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotGoal[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_DecimalLatLon[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_DVLBeam[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotAction[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_KeyValue[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_CaptainStateFeedback[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_GoalDescriptor[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Section[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_NED[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_NavSts[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotActionResult[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_Setpoints[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_PilotActionGoal[0m
+[35m[1mScanning dependencies of target _cola2_msgs_generate_messages_check_deps_SafetySupervisorStatus[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp[0m
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target nav_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target nav_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_nodejs[0m
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target nav_msgs_generate_messages_eus
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target nav_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_MaxJoyVelocity
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotFeedback
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Action
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_FlsConfig
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Mission
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Goto
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_String
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_DigitalOutput
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_eus[0m
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_RPY
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target nav_msgs_generate_messages_lisp[0m
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Float32Stamped
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp[0m
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_DVLBeam
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_MissionState
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_WorldWaypointReq
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_CaptainStatus
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotActionFeedback
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotResult
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_BodyForceReq
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Setpoints
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_KeyValueArray
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_DecimalLatLon
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Bool6Axis
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_SafetySupervisorStatus
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_DVL
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Section
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_ImageAcquisitionSettings
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_SSSConfig
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_NED
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_KeyValue
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_CaptainStateFeedback
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotAction
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotGoal
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_RecoveryAction
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_Recovery
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotActionGoal
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_GoalDescriptor
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_PilotActionResult
+[  0%] Built target nav_msgs_generate_messages_lisp
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_BodyVelocityReq
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target _cola2_msgs_generate_messages_check_deps_NavSts
+[35m[1mScanning dependencies of target cola2_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target cola2_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target cola2_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target cola2_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target cola2_msgs_generate_messages_lisp[0m
+[  0%] [34m[1mGenerating Python from MSG cola2_msgs/BodyForceReq[0m
+[  2%] [34m[1mGenerating EusLisp code from cola2_msgs/Bool6Axis.msg[0m
+[  2%] [34m[1mGenerating Python from MSG cola2_msgs/CaptainStateFeedback[0m
+[  2%] [34m[1mGenerating EusLisp code from cola2_msgs/BodyVelocityReq.msg[0m
+[  3%] [34m[1mGenerating C++ code from cola2_msgs/CaptainStateFeedback.msg[0m
+[  3%] [34m[1mGenerating Python from MSG cola2_msgs/CaptainStatus[0m
+[  3%] [34m[1mGenerating C++ code from cola2_msgs/BodyVelocityReq.msg[0m
+[  5%] [34m[1mGenerating Python from MSG cola2_msgs/BodyVelocityReq[0m
+[  5%] [34m[1mGenerating Python from MSG cola2_msgs/DVLBeam[0m
+[  3%] [34m[1mGenerating C++ code from cola2_msgs/BodyForceReq.msg[0m
+[  5%] [34m[1mGenerating C++ code from cola2_msgs/Bool6Axis.msg[0m
+[  5%] [34m[1mGenerating Javascript code from cola2_msgs/BodyVelocityReq.msg[0m
+[  6%] [34m[1mGenerating Lisp code from cola2_msgs/Bool6Axis.msg[0m
+[  6%] [34m[1mGenerating Javascript code from cola2_msgs/Bool6Axis.msg[0m
+[  9%] [34m[1mGenerating EusLisp code from cola2_msgs/BodyForceReq.msg[0m
+[  9%] [34m[1mGenerating EusLisp code from cola2_msgs/DVL.msg[0m
+[  6%] [34m[1mGenerating Javascript code from cola2_msgs/DVLBeam.msg[0m
+[  6%] [34m[1mGenerating Javascript code from cola2_msgs/BodyForceReq.msg[0m
+[  9%] [34m[1mGenerating Lisp code from cola2_msgs/BodyVelocityReq.msg[0m
+[  9%] [34m[1mGenerating Javascript code from cola2_msgs/Float32Stamped.msg[0m
+[  9%] [34m[1mGenerating Python from MSG cola2_msgs/Float32Stamped[0m
+[  9%] [34m[1mGenerating C++ code from cola2_msgs/CaptainStatus.msg[0m
+[  9%] [34m[1mGenerating Lisp code from cola2_msgs/BodyForceReq.msg[0m
+[  9%] [34m[1mGenerating Python from MSG cola2_msgs/Bool6Axis[0m
+[  9%] [34m[1mGenerating EusLisp code from cola2_msgs/CaptainStateFeedback.msg[0m
+[ 11%] [34m[1mGenerating Lisp code from cola2_msgs/DVL.msg[0m
+[ 15%] [34m[1mGenerating Lisp code from cola2_msgs/CaptainStateFeedback.msg[0m
+[ 16%] [34m[1mGenerating Python from MSG cola2_msgs/ImageAcquisitionSettings[0m
+[ 16%] [34m[1mGenerating Python from MSG cola2_msgs/GoalDescriptor[0m
+[ 11%] [34m[1mGenerating Javascript code from cola2_msgs/DVL.msg[0m
+[ 17%] [34m[1mGenerating Javascript code from cola2_msgs/CaptainStatus.msg[0m
+[ 17%] [34m[1mGenerating Python from MSG cola2_msgs/FlsConfig[0m
+[ 17%] [34m[1mGenerating Python from MSG cola2_msgs/DecimalLatLon[0m
+[ 17%] [34m[1mGenerating Javascript code from cola2_msgs/FlsConfig.msg[0m
+[ 17%] [34m[1mGenerating EusLisp code from cola2_msgs/DecimalLatLon.msg[0m
+[ 17%] [34m[1mGenerating Javascript code from cola2_msgs/GoalDescriptor.msg[0m
+[ 17%] [34m[1mGenerating Python from MSG cola2_msgs/KeyValue[0m
+[ 17%] [34m[1mGenerating Javascript code from cola2_msgs/KeyValue.msg[0m
+[ 17%] [34m[1mGenerating C++ code from cola2_msgs/DVL.msg[0m
+[ 17%] [34m[1mGenerating Javascript code from cola2_msgs/DecimalLatLon.msg[0m
+[ 19%] [34m[1mGenerating EusLisp code from cola2_msgs/DVLBeam.msg[0m
+[ 17%] [34m[1mGenerating EusLisp code from cola2_msgs/CaptainStatus.msg[0m
+[ 20%] [34m[1mGenerating Lisp code from cola2_msgs/CaptainStatus.msg[0m
+[ 20%] [34m[1mGenerating Javascript code from cola2_msgs/CaptainStateFeedback.msg[0m
+[ 21%] [34m[1mGenerating Python from MSG cola2_msgs/DVL[0m
+[ 22%] [34m[1mGenerating Javascript code from cola2_msgs/ImageAcquisitionSettings.msg[0m
+[ 22%] [34m[1mGenerating Javascript code from cola2_msgs/KeyValueArray.msg[0m
+[ 23%] [34m[1mGenerating Python from MSG cola2_msgs/KeyValueArray[0m
+[ 23%] [34m[1mGenerating Javascript code from cola2_msgs/MissionState.msg[0m
+[ 25%] [34m[1mGenerating EusLisp code from cola2_msgs/Float32Stamped.msg[0m
+[ 25%] [34m[1mGenerating Lisp code from cola2_msgs/DVLBeam.msg[0m
+[ 25%] [34m[1mGenerating Python from MSG cola2_msgs/MissionState[0m
+[ 25%] [34m[1mGenerating EusLisp code from cola2_msgs/FlsConfig.msg[0m
+[ 26%] [34m[1mGenerating EusLisp code from cola2_msgs/GoalDescriptor.msg[0m
+[ 27%] [34m[1mGenerating C++ code from cola2_msgs/DVLBeam.msg[0m
+[ 28%] [34m[1mGenerating Python from MSG cola2_msgs/NED[0m
+[ 28%] [34m[1mGenerating C++ code from cola2_msgs/DecimalLatLon.msg[0m
+[ 29%] [34m[1mGenerating EusLisp code from cola2_msgs/KeyValue.msg[0m
+[ 29%] [34m[1mGenerating EusLisp code from cola2_msgs/KeyValueArray.msg[0m
+[ 29%] [34m[1mGenerating EusLisp code from cola2_msgs/ImageAcquisitionSettings.msg[0m
+[ 30%] [34m[1mGenerating C++ code from cola2_msgs/Float32Stamped.msg[0m
+[ 31%] [34m[1mGenerating EusLisp code from cola2_msgs/MissionState.msg[0m
+[ 31%] [34m[1mGenerating Python from MSG cola2_msgs/NavSts[0m
+[ 32%] [34m[1mGenerating Lisp code from cola2_msgs/DecimalLatLon.msg[0m
+[ 33%] [34m[1mGenerating Python from MSG cola2_msgs/RPY[0m
+[ 33%] [34m[1mGenerating C++ code from cola2_msgs/FlsConfig.msg[0m
+[ 33%] [34m[1mGenerating Lisp code from cola2_msgs/Float32Stamped.msg[0m
+[ 34%] [34m[1mGenerating Javascript code from cola2_msgs/NED.msg[0m
+[ 35%] [34m[1mGenerating C++ code from cola2_msgs/GoalDescriptor.msg[0m
+[ 35%] [34m[1mGenerating C++ code from cola2_msgs/ImageAcquisitionSettings.msg[0m
+[ 36%] [34m[1mGenerating C++ code from cola2_msgs/KeyValue.msg[0m
+[ 36%] [34m[1mGenerating Python from MSG cola2_msgs/RecoveryAction[0m
+[ 36%] [34m[1mGenerating C++ code from cola2_msgs/KeyValueArray.msg[0m
+[ 37%] [34m[1mGenerating Lisp code from cola2_msgs/FlsConfig.msg[0m
+[ 38%] [34m[1mGenerating Python from MSG cola2_msgs/SSSConfig[0m
+[ 38%] [34m[1mGenerating Python from MSG cola2_msgs/SafetySupervisorStatus[0m
+[ 39%] [34m[1mGenerating C++ code from cola2_msgs/MissionState.msg[0m
+[ 39%] [34m[1mGenerating Lisp code from cola2_msgs/GoalDescriptor.msg[0m
+[ 39%] [34m[1mGenerating Javascript code from cola2_msgs/NavSts.msg[0m
+[ 39%] [34m[1mGenerating EusLisp code from cola2_msgs/NED.msg[0m
+[ 40%] [34m[1mGenerating Python from MSG cola2_msgs/Setpoints[0m
+[ 41%] [34m[1mGenerating Javascript code from cola2_msgs/RPY.msg[0m
+[ 41%] [34m[1mGenerating Javascript code from cola2_msgs/RecoveryAction.msg[0m
+[ 41%] [34m[1mGenerating C++ code from cola2_msgs/NED.msg[0m
+[ 42%] [34m[1mGenerating C++ code from cola2_msgs/NavSts.msg[0m
+[ 43%] [34m[1mGenerating Lisp code from cola2_msgs/ImageAcquisitionSettings.msg[0m
+[ 44%] [34m[1mGenerating Javascript code from cola2_msgs/SSSConfig.msg[0m
+[ 44%] [34m[1mGenerating Python from MSG cola2_msgs/WorldWaypointReq[0m
+[ 45%] [34m[1mGenerating EusLisp code from cola2_msgs/NavSts.msg[0m
+[ 45%] [34m[1mGenerating Javascript code from cola2_msgs/SafetySupervisorStatus.msg[0m
+[ 46%] [34m[1mGenerating Javascript code from cola2_msgs/WorldWaypointReq.msg[0m
+[ 46%] [34m[1mGenerating Javascript code from cola2_msgs/Setpoints.msg[0m
+[ 46%] [34m[1mGenerating EusLisp code from cola2_msgs/RPY.msg[0m
+[ 47%] [34m[1mGenerating EusLisp code from cola2_msgs/RecoveryAction.msg[0m
+[ 48%] [34m[1mGenerating Javascript code from cola2_msgs/PilotAction.msg[0m
+[ 48%] [34m[1mGenerating Javascript code from cola2_msgs/PilotActionGoal.msg[0m
+[ 50%] [34m[1mGenerating C++ code from cola2_msgs/RPY.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from cola2_msgs/PilotActionResult.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from cola2_msgs/PilotActionFeedback.msg[0m
+[ 51%] [34m[1mGenerating C++ code from cola2_msgs/RecoveryAction.msg[0m
+[ 51%] [34m[1mGenerating Lisp code from cola2_msgs/KeyValue.msg[0m
+[ 51%] [34m[1mGenerating EusLisp code from cola2_msgs/SSSConfig.msg[0m
+[ 52%] [34m[1mGenerating Python from MSG cola2_msgs/PilotAction[0m
+[ 53%] [34m[1mGenerating Javascript code from cola2_msgs/PilotGoal.msg[0m
+[ 54%] [34m[1mGenerating Python from MSG cola2_msgs/PilotActionGoal[0m
+[ 54%] [34m[1mGenerating C++ code from cola2_msgs/SSSConfig.msg[0m
+[ 54%] [34m[1mGenerating Lisp code from cola2_msgs/KeyValueArray.msg[0m
+[ 55%] [34m[1mGenerating C++ code from cola2_msgs/SafetySupervisorStatus.msg[0m
+[ 55%] [34m[1mGenerating Lisp code from cola2_msgs/MissionState.msg[0m
+[ 55%] [34m[1mGenerating C++ code from cola2_msgs/Setpoints.msg[0m
+[ 56%] [34m[1mGenerating Python from MSG cola2_msgs/PilotActionResult[0m
+[ 56%] [34m[1mGenerating Javascript code from cola2_msgs/PilotResult.msg[0m
+[ 56%] [34m[1mGenerating Python from MSG cola2_msgs/PilotActionFeedback[0m
+[ 57%] [34m[1mGenerating Javascript code from cola2_msgs/PilotFeedback.msg[0m
+[ 58%] [34m[1mGenerating Python from MSG cola2_msgs/PilotGoal[0m
+[ 59%] [34m[1mGenerating Lisp code from cola2_msgs/NED.msg[0m
+[ 60%] [34m[1mGenerating EusLisp code from cola2_msgs/SafetySupervisorStatus.msg[0m
+[ 60%] [34m[1mGenerating Lisp code from cola2_msgs/NavSts.msg[0m
+[ 60%] [34m[1mGenerating EusLisp code from cola2_msgs/Setpoints.msg[0m
+[ 61%] [34m[1mGenerating Lisp code from cola2_msgs/RPY.msg[0m
+[ 61%] [34m[1mGenerating Lisp code from cola2_msgs/RecoveryAction.msg[0m
+[ 62%] [34m[1mGenerating Lisp code from cola2_msgs/SSSConfig.msg[0m
+[ 62%] [34m[1mGenerating Python from MSG cola2_msgs/PilotResult[0m
+[ 63%] [34m[1mGenerating EusLisp code from cola2_msgs/WorldWaypointReq.msg[0m
+[ 63%] [34m[1mGenerating Python code from SRV cola2_msgs/Action[0m
+[ 64%] [34m[1mGenerating Python from MSG cola2_msgs/PilotFeedback[0m
+[ 65%] [34m[1mGenerating C++ code from cola2_msgs/WorldWaypointReq.msg[0m
+[ 65%] [34m[1mGenerating C++ code from cola2_msgs/PilotAction.msg[0m
+[ 65%] [34m[1mGenerating Lisp code from cola2_msgs/SafetySupervisorStatus.msg[0m
+[ 66%] [34m[1mGenerating Lisp code from cola2_msgs/Setpoints.msg[0m
+[ 66%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotAction.msg[0m
+[ 66%] [34m[1mGenerating Javascript code from cola2_msgs/Action.srv[0m
+[ 67%] [34m[1mGenerating Javascript code from cola2_msgs/DigitalOutput.srv[0m
+[ 68%] [34m[1mGenerating Python code from SRV cola2_msgs/DigitalOutput[0m
+[ 69%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotActionGoal.msg[0m
+[ 69%] [34m[1mGenerating Lisp code from cola2_msgs/WorldWaypointReq.msg[0m
+[ 69%] [34m[1mGenerating Javascript code from cola2_msgs/Goto.srv[0m
+[ 70%] [34m[1mGenerating Javascript code from cola2_msgs/MaxJoyVelocity.srv[0m
+[ 71%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotActionFeedback.msg[0m
+[ 72%] [34m[1mGenerating Lisp code from cola2_msgs/PilotAction.msg[0m
+[ 72%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotActionResult.msg[0m
+[ 72%] [34m[1mGenerating Python code from SRV cola2_msgs/Goto[0m
+[ 73%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotGoal.msg[0m
+[ 73%] [34m[1mGenerating C++ code from cola2_msgs/PilotActionGoal.msg[0m
+[ 73%] [34m[1mGenerating Lisp code from cola2_msgs/PilotActionGoal.msg[0m
+[ 73%] [34m[1mGenerating Lisp code from cola2_msgs/PilotActionFeedback.msg[0m
+[ 75%] [34m[1mGenerating Lisp code from cola2_msgs/PilotActionResult.msg[0m
+[ 76%] [34m[1mGenerating Lisp code from cola2_msgs/PilotGoal.msg[0m
+[ 76%] [34m[1mGenerating Javascript code from cola2_msgs/Mission.srv[0m
+[ 76%] [34m[1mGenerating Lisp code from cola2_msgs/PilotResult.msg[0m
+[ 77%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotResult.msg[0m
+[ 78%] [34m[1mGenerating Javascript code from cola2_msgs/Recovery.srv[0m
+[ 78%] [34m[1mGenerating EusLisp code from cola2_msgs/PilotFeedback.msg[0m
+[ 80%] [34m[1mGenerating C++ code from cola2_msgs/PilotActionFeedback.msg[0m
+[ 80%] [34m[1mGenerating Python code from SRV cola2_msgs/MaxJoyVelocity[0m
+[ 80%] [34m[1mGenerating C++ code from cola2_msgs/PilotActionResult.msg[0m
+[ 81%] [34m[1mGenerating Lisp code from cola2_msgs/PilotFeedback.msg[0m
+[ 82%] [34m[1mGenerating EusLisp code from cola2_msgs/Action.srv[0m
+[ 82%] [34m[1mGenerating C++ code from cola2_msgs/PilotGoal.msg[0m
+[ 82%] [34m[1mGenerating EusLisp code from cola2_msgs/DigitalOutput.srv[0m
+[ 82%] [34m[1mGenerating Python code from SRV cola2_msgs/Mission[0m
+[ 82%] [34m[1mGenerating Javascript code from cola2_msgs/Section.srv[0m
+[ 83%] [34m[1mGenerating C++ code from cola2_msgs/PilotResult.msg[0m
+[ 84%] [34m[1mGenerating Javascript code from cola2_msgs/String.srv[0m
+[ 84%] [34m[1mGenerating Lisp code from cola2_msgs/Action.srv[0m
+[ 84%] [34m[1mGenerating C++ code from cola2_msgs/PilotFeedback.msg[0m
+[ 85%] [34m[1mGenerating EusLisp code from cola2_msgs/Goto.srv[0m
+[ 86%] [34m[1mGenerating Python code from SRV cola2_msgs/Recovery[0m
+[ 86%] [34m[1mGenerating EusLisp code from cola2_msgs/MaxJoyVelocity.srv[0m
+[ 88%] [34m[1mGenerating EusLisp code from cola2_msgs/Mission.srv[0m
+[ 88%] [34m[1mGenerating C++ code from cola2_msgs/Action.srv[0m
+[ 88%] [34m[1mGenerating Python code from SRV cola2_msgs/Section[0m
+[ 89%] [34m[1mGenerating C++ code from cola2_msgs/DigitalOutput.srv[0m
+[ 89%] [34m[1mGenerating Lisp code from cola2_msgs/DigitalOutput.srv[0m
+[ 90%] [34m[1mGenerating Python code from SRV cola2_msgs/String[0m
+[ 91%] [34m[1mGenerating C++ code from cola2_msgs/Goto.srv[0m
+[ 92%] [34m[1mGenerating Lisp code from cola2_msgs/MaxJoyVelocity.srv[0m
+[ 92%] [34m[1mGenerating Lisp code from cola2_msgs/Goto.srv[0m
+[ 92%] [34m[1mGenerating C++ code from cola2_msgs/MaxJoyVelocity.srv[0m
+[ 93%] [34m[1mGenerating C++ code from cola2_msgs/Mission.srv[0m
+[ 93%] Built target cola2_msgs_generate_messages_nodejs
+[ 93%] [34m[1mGenerating C++ code from cola2_msgs/Recovery.srv[0m
+[ 93%] [34m[1mGenerating EusLisp code from cola2_msgs/Recovery.srv[0m
+[ 93%] [34m[1mGenerating Lisp code from cola2_msgs/Mission.srv[0m
+[ 94%] [34m[1mGenerating Lisp code from cola2_msgs/Recovery.srv[0m
+[ 95%] [34m[1mGenerating EusLisp code from cola2_msgs/Section.srv[0m
+[ 95%] [34m[1mGenerating Lisp code from cola2_msgs/Section.srv[0m
+[ 96%] [34m[1mGenerating C++ code from cola2_msgs/Section.srv[0m
+[ 97%] [34m[1mGenerating Lisp code from cola2_msgs/String.srv[0m
+[ 98%] [34m[1mGenerating EusLisp manifest code for cola2_msgs[0m
+[ 98%] [34m[1mGenerating EusLisp code from cola2_msgs/String.srv[0m
+[ 98%] [34m[1mGenerating C++ code from cola2_msgs/String.srv[0m
+[ 98%] Built target cola2_msgs_generate_messages_lisp
+[ 98%] [34m[1mGenerating Python msg __init__.py for cola2_msgs[0m
+[100%] [34m[1mGenerating Python srv __init__.py for cola2_msgs[0m
+[100%] Built target cola2_msgs_generate_messages_cpp
+[100%] Built target cola2_msgs_generate_messages_py
+[100%] Built target cola2_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target cola2_msgs_generate_messages[0m
+[100%] Built target cola2_msgs_generate_messages

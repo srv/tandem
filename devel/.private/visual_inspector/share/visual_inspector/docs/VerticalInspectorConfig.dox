@@ -1,0 +1,19 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~kp_y" : \b [double] Ganancia Proporcional Y min: 0.0, default: 0.15, max: 1.0
+- \b "~ki_y" : \b [double] Ganancia Integral Y min: 0.0, default: 0.05, max: 1.0
+- \b "~kd_y" : \b [double] Ganancia Derivativa Y min: 0.0, default: 0.0, max: 1.0
+- \b "~int_y_limit" : \b [double] Limite Integral Y min: 0.0, default: 0.2, max: 0.5
+- \b "~vy_max" : \b [double] Velocidad maxima Y min: 0.0, default: 0.4, max: 1.0
+- \b "~tol_y" : \b [double] Tolerancia Y (metros) min: 0.01, default: 0.5, max: 2.0
+- \b "~kp_z" : \b [double] Ganancia Proporcional Z min: 0.0, default: 0.1, max: 1.0
+- \b "~kd_z" : \b [double] Ganancia Derivativa Z min: 0.0, default: 0.0, max: 1.0
+- \b "~ki_z" : \b [double] Ganancia Integral Z min: 0.0, default: 0.05, max: 1.0
+- \b "~vz_max" : \b [double] Velocidad maxima Z min: 0.0, default: 0.4, max: 1.0
+- \b "~int_z_limit" : \b [double] Limite Integral Z min: 0.0, default: 0.2, max: 1.0
+- \b "~tol_z" : \b [double] Tolerancia Z (metros) min: 0.01, default: 0.5, max: 2.0
+- \b "~alpha_filter" : \b [double] Filtro paso bajo (0-1) min: 0.0, default: 0.3, max: 1.0
+- \b "~max_dv" : \b [double] Max aceleracion por ciclo min: 0.0, default: 0.1, max: 1.0
+

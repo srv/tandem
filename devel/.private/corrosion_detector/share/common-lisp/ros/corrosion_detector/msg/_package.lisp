@@ -1,0 +1,19 @@
+(cl:defpackage corrosion_detector-msg
+  (:use )
+  (:export
+   "<AXISPOINTS>"
+   "AXISPOINTS"
+   "<BOUNDINGBOX>"
+   "BOUNDINGBOX"
+   "<BOUNDINGBOXARRAY>"
+   "BOUNDINGBOXARRAY"
+   "<COORDINATESERROR>"
+   "COORDINATESERROR"
+   "<DETECTION3D>"
+   "DETECTION3D"
+   "<DETECTION3DARRAY>"
+   "DETECTION3DARRAY"
+   "<NETSTATS>"
+   "NETSTATS"
+  ))
+

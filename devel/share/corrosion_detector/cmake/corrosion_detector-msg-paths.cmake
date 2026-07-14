@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/corrosion_detector/share/corrosion_detector/cmake/corrosion_detector-msg-paths.cmake

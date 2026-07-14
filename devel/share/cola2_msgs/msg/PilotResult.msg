@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/cola2_msgs/share/cola2_msgs/msg/PilotResult.msg

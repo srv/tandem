@@ -1,0 +1,5 @@
+[35m[1mScanning dependencies of target visual_inspector_gencfg[0m
+[100%] [34m[1mGenerating dynamic reconfigure files from cfg/VerticalInspector.cfg: /home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/include/visual_inspector/VerticalInspectorConfig.h /home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/lib/python3/dist-packages/visual_inspector/cfg/VerticalInspectorConfig.py[0m
+Generating reconfiguration files for VerticalInspector in tandem
+Wrote header file in /home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/include/visual_inspector/VerticalInspectorConfig.h
+[100%] Built target visual_inspector_gencfg

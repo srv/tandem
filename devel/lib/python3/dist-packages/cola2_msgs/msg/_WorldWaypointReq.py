@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/cola2_msgs/lib/python3/dist-packages/cola2_msgs/msg/_WorldWaypointReq.py

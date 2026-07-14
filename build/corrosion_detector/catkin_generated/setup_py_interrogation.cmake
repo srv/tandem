@@ -1,0 +1,7 @@
+set(corrosion_detector_SETUP_PY_SETUP_MODULE "distutils.core")
+set(corrosion_detector_SETUP_PY_VERSION "0.0.0")
+set(corrosion_detector_SETUP_PY_SCRIPTS "")
+set(corrosion_detector_SETUP_PY_PACKAGES "corrosion_detector")
+set(corrosion_detector_SETUP_PY_PACKAGE_DIRS "src/corrosion_detector")
+set(corrosion_detector_SETUP_PY_MODULES "")
+set(corrosion_detector_SETUP_PY_MODULE_DIRS "")

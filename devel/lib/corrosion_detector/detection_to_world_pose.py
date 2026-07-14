@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/corrosion_detector/lib/corrosion_detector/detection_to_world_pose.py

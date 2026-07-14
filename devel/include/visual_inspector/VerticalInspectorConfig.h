@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/include/visual_inspector/VerticalInspectorConfig.h

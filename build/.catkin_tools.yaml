@@ -1,0 +1,6 @@
+devel_space: /home/rosuser/repo/tandem_vicent_ws/devel
+install: false
+install_space: /home/rosuser/repo/tandem_vicent_ws/install
+profile: default
+source_space: /home/rosuser/repo/tandem_vicent_ws/src
+workspace: /home/rosuser/repo/tandem_vicent_ws

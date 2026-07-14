@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/visual_inspector/share/visual_inspector/cmake/visual_inspectorConfig-version.cmake

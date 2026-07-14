@@ -1,0 +1,8 @@
+prefix=/home/rosuser/repo/tandem_vicent_ws/devel/.private/cola2_msgs
+
+Name: cola2_msgs
+Description: Description of cola2_msgs
+Version: 24.1.0
+Cflags: -I/home/rosuser/repo/tandem_vicent_ws/devel/.private/cola2_msgs/include
+Libs: -L${prefix}/lib 
+Requires: std_msgs sensor_msgs actionlib_msgs geometry_msgs nav_msgs message_generation message_runtime

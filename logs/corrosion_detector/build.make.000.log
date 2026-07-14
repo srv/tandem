@@ -1,0 +1,108 @@
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_AxisPoints[0m
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_Detection3DArray[0m
+[  0%] Built target std_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_Detection3D[0m
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_BoundingBoxArray[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp[0m
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_Detection3DArray
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_AxisPoints
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_NetStats[0m
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_BoundingBox[0m
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_CoordinatesError[0m
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_CameraSelector[0m
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_Detection3D
+[35m[1mScanning dependencies of target _corrosion_detector_generate_messages_check_deps_Trigger[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_eus[0m
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_BoundingBoxArray
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target geometry_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_py
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp[0m
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_NetStats
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_BoundingBox
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_CoordinatesError
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_CameraSelector
+[  0%] Built target _corrosion_detector_generate_messages_check_deps_Trigger
+[35m[1mScanning dependencies of target corrosion_detector_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target corrosion_detector_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target corrosion_detector_generate_messages_py[0m
+[35m[1mScanning dependencies of target corrosion_detector_generate_messages_eus[0m
+[35m[1mScanning dependencies of target corrosion_detector_generate_messages_cpp[0m
+[  4%] [34m[1mGenerating EusLisp code from corrosion_detector/BoundingBox.msg[0m
+[ 22%] [34m[1mGenerating Lisp code from corrosion_detector/BoundingBox.msg[0m
+[ 22%] [34m[1mGenerating Lisp code from corrosion_detector/Detection3D.msg[0m
+[ 22%] [34m[1mGenerating EusLisp code from corrosion_detector/Detection3DArray.msg[0m
+[ 22%] [34m[1mGenerating EusLisp code from corrosion_detector/Detection3D.msg[0m
+[ 22%] [34m[1mGenerating Lisp code from corrosion_detector/BoundingBoxArray.msg[0m
+[ 22%] [34m[1mGenerating Python from MSG corrosion_detector/Detection3DArray[0m
+[ 25%] [34m[1mGenerating Javascript code from corrosion_detector/NetStats.msg[0m
+[ 27%] [34m[1mGenerating Lisp code from corrosion_detector/CameraSelector.srv[0m
+[ 29%] [34m[1mGenerating C++ code from corrosion_detector/BoundingBox.msg[0m
+[ 22%] [34m[1mGenerating Python from MSG corrosion_detector/Detection3D[0m
+[ 22%] [34m[1mGenerating Python from MSG corrosion_detector/NetStats[0m
+[ 22%] [34m[1mGenerating Lisp code from corrosion_detector/Trigger.srv[0m
+[ 31%] [34m[1mGenerating Javascript code from corrosion_detector/BoundingBox.msg[0m
+[ 41%] [34m[1mGenerating Lisp code from corrosion_detector/NetStats.msg[0m
+[ 41%] [34m[1mGenerating Lisp code from corrosion_detector/Detection3DArray.msg[0m
+[ 45%] [34m[1mGenerating EusLisp code from corrosion_detector/BoundingBoxArray.msg[0m
+[ 45%] [34m[1mGenerating C++ code from corrosion_detector/BoundingBoxArray.msg[0m
+[ 47%] [34m[1mGenerating Python from MSG corrosion_detector/BoundingBoxArray[0m
+[ 52%] [34m[1mGenerating EusLisp code from corrosion_detector/NetStats.msg[0m
+[ 54%] [34m[1mGenerating EusLisp code from corrosion_detector/Trigger.srv[0m
+[ 60%] [34m[1mGenerating EusLisp code from corrosion_detector/CameraSelector.srv[0m
+[ 60%] [34m[1mGenerating Lisp code from corrosion_detector/AxisPoints.msg[0m
+[ 62%] [34m[1mGenerating Python from MSG corrosion_detector/BoundingBox[0m
+[ 62%] [34m[1mGenerating Python from MSG corrosion_detector/AxisPoints[0m
+[ 62%] [34m[1mGenerating Javascript code from corrosion_detector/BoundingBoxArray.msg[0m
+[ 62%] [34m[1mGenerating EusLisp code from corrosion_detector/AxisPoints.msg[0m
+[ 62%] [34m[1mGenerating Lisp code from corrosion_detector/CoordinatesError.msg[0m
+[ 60%] [34m[1mGenerating Javascript code from corrosion_detector/Detection3D.msg[0m
+[ 62%] [34m[1mGenerating EusLisp code from corrosion_detector/CoordinatesError.msg[0m
+[ 64%] [34m[1mGenerating Python from MSG corrosion_detector/CoordinatesError[0m
+[ 66%] [34m[1mGenerating C++ code from corrosion_detector/Detection3D.msg[0m
+[ 68%] [34m[1mGenerating Javascript code from corrosion_detector/Detection3DArray.msg[0m
+[ 70%] [34m[1mGenerating Python code from SRV corrosion_detector/Trigger[0m
+[ 72%] [34m[1mGenerating Javascript code from corrosion_detector/AxisPoints.msg[0m
+[ 75%] [34m[1mGenerating Python code from SRV corrosion_detector/CameraSelector[0m
+[ 77%] [34m[1mGenerating EusLisp manifest code for corrosion_detector[0m
+[ 79%] [34m[1mGenerating Javascript code from corrosion_detector/CoordinatesError.msg[0m
+[ 81%] [34m[1mGenerating Javascript code from corrosion_detector/CameraSelector.srv[0m
+[ 83%] [34m[1mGenerating Javascript code from corrosion_detector/Trigger.srv[0m
+[ 85%] [34m[1mGenerating C++ code from corrosion_detector/Detection3DArray.msg[0m
+[ 89%] [34m[1mGenerating C++ code from corrosion_detector/NetStats.msg[0m
+[ 89%] [34m[1mGenerating C++ code from corrosion_detector/AxisPoints.msg[0m
+[ 91%] [34m[1mGenerating C++ code from corrosion_detector/CoordinatesError.msg[0m
+[ 93%] [34m[1mGenerating C++ code from corrosion_detector/Trigger.srv[0m
+[ 95%] [34m[1mGenerating C++ code from corrosion_detector/CameraSelector.srv[0m
+[ 95%] Built target corrosion_detector_generate_messages_lisp
+[ 95%] Built target corrosion_detector_generate_messages_nodejs
+[ 97%] [34m[1mGenerating Python msg __init__.py for corrosion_detector[0m
+[100%] [34m[1mGenerating Python srv __init__.py for corrosion_detector[0m
+[100%] Built target corrosion_detector_generate_messages_cpp
+[100%] Built target corrosion_detector_generate_messages_py
+[100%] Built target corrosion_detector_generate_messages_eus
+[35m[1mScanning dependencies of target corrosion_detector_generate_messages[0m
+[100%] Built target corrosion_detector_generate_messages

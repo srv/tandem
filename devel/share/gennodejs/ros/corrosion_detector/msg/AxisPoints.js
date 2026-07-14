@@ -1,0 +1,1 @@
+/home/rosuser/repo/tandem_vicent_ws/devel/.private/corrosion_detector/share/gennodejs/ros/corrosion_detector/msg/AxisPoints.js

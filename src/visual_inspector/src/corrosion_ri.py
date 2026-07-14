@@ -8,7 +8,7 @@ from std_msgs.msg import Float64
 from tf.transformations import euler_from_quaternion
 from visualization_msgs.msg import Marker
 from dynamic_reconfigure.server import Server
-from tandem.cfg import VerticalInspectorConfig
+from visual_inspector.cfg import VerticalInspectorConfig
 from std_srvs.srv import Trigger, TriggerResponse
 
 from cola2_msgs.msg import BodyVelocityReq, GoalDescriptor, Bool6Axis, NavSts

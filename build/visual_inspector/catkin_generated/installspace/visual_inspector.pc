@@ -1,0 +1,8 @@
+prefix=/home/rosuser/repo/tandem_vicent_ws/install
+
+Name: visual_inspector
+Description: Description of visual_inspector
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 
